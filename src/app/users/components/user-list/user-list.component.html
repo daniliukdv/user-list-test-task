@@ -1,0 +1,26 @@
+<div class="table">
+  <div class="table-row">
+    <div
+      class="table-row-cell"
+      *ngFor="let key of cellKeys"
+      [style.width]="key | userConfig: 'widthOnTable'"
+    >
+      <h4>{{ key | userConfig: "displayName" }}</h4>
+    </div>
+  </div>
+
+  <div class="table-body">
+    <div
+      class="table-row user-row"
+      *ngFor="let user of users$ | async"
+      (click)="onSelectUser(user)"
+    >
+      <div
+        *ngFor="let key of cellKeys"
+        [style.width]="key | userConfig: 'widthOnTable'"
+      >
+        {{ user[key] }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.table {
+  background-color: #ffffff;
+  box-shadow: 0 0 30px #523f690d;
+  border: 1px solid #ebedf3;
+  border-radius: 6px;
+  opacity: 1;
+  height: 100%;
+  overflow: auto;
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px 26px;
+
+    div {
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: normal;
+      color: #3f4254;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &-cell {
+      h4 {
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0;
+        color: #a4a4b5;
+        text-transform: uppercase;
+        opacity: 1;
+        margin: 0;
+        font-family: "Helvetica Bold", sans-serif;
+      }
+    }
+  }
+}
+
+.user-row {
+  background-color: #f4f5f8;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eff0f4;
+  }
+}

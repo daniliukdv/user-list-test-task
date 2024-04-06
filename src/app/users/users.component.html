@@ -1,0 +1,19 @@
+<div class="user-list-page__wrapper">
+  <div class="user-list-page__wrapper-header">
+    <div class="user-list-page__wrapper-header__button-wrapper">
+      <button class="button button-primary" (click)="onCreateUser()">
+        Create user
+      </button>
+    </div>
+
+    <div class="user-list-page__wrapper-header__form-header"></div>
+  </div>
+
+  <div class="user-list-page__wrapper-body">
+    <app-user-list></app-user-list>
+
+    <div [hidden]="!(hasUserOpen$ | async)">
+      <app-create-update-user></app-create-update-user>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+@import "assets/fonts/fonts.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+app-root {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+body {
+  background-color: #eef0f8;
+  margin: 0;
+  font-family: "Helvetica", serif;
+  font-size: 14px;
+}
+
+.button {
+  border: 1px solid transparent;
+  box-shadow: 0 5px 8px #2e8ff029;
+  border-radius: 6px;
+  height: 46px;
+  padding: 0 20px;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  cursor: pointer;
+  min-width: 120px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    transition: all 0.15s ease-in-out;
+    opacity: 0.85;
+  }
+
+  &.button-primary {
+    background-color: #2e8ff0;
+  }
+
+  &.button-secondary {
+    background-color: #f44682;
+  }
+
+  &-icon {
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      transition: all 0.15s ease-in-out;
+      opacity: 0.5;
+    }
+  }
+}
+
+.toast-success {
+  background-color: #66bb6a;
+  box-shadow: 0 10px 15px #4caf505c !important;
+  border-radius: 6px !important;
+  min-height: 56px;
+  background-image: none !important;
+  font-size: 13px !important;
+  padding-left: 30px !important;
+  display: flex;
+  align-items: center;
+  font-family: "Helvetica", sans-serif;
+}

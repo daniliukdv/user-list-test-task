@@ -1,0 +1,72 @@
+<div class="create-update-user__page">
+  <div class="create-update-user__page-header">
+    <h2>{{ selectedUser?.username || "Create new user" }}</h2>
+
+    <button type="button" class="button-icon" (click)="onClose()">
+      <img src="./assets/images/close.svg" alt="Close button icon" />
+    </button>
+  </div>
+
+  <form
+    class="create-update-user__page-form"
+    [formGroup]="userForm"
+    [appCustomFormValidation]="userForm"
+    (ngSubmit)="onCreateUpdateUser()"
+  >
+    <div
+      *ngFor="let field of formControlList"
+      class="create-update-user__page-form__control"
+    >
+      <label [for]="field">{{ field | userConfig: "displayName" }}*</label>
+
+      <div
+        class="create-update-user__page-form__control__input-wrapper"
+        [class.email-input]="(field | userConfig: 'type') === 'email'"
+      >
+        <img
+          *ngIf="(field | userConfig: 'type') === 'email'"
+          src="./assets/images/email.svg"
+          alt="Email prefix icon"
+        />
+
+        <input
+          *ngIf="(field | userConfig: 'type') !== 'select'"
+          [type]="field | userConfig: 'type'"
+          [id]="field"
+          [formControlName]="field"
+          [readonly]="selectedUser && (field | userConfig: 'readonly')"
+        />
+      </div>
+
+      <select
+        *ngIf="(field | userConfig: 'type') === 'select'"
+        [id]="field"
+        [formControlName]="field"
+      >
+        <option [value]="userType.Admin">Admin</option>
+        <option [value]="userType.Driver">Driver</option>
+      </select>
+
+      <div id="{{ field }}-error" class="error-message"></div>
+    </div>
+
+    <div class="create-update-user__page-form__actions">
+      <button
+        *ngIf="selectedUser"
+        class="button button-secondary"
+        type="button"
+        (click)="onDeleteUser(selectedUser.username)"
+      >
+        Delete
+      </button>
+
+      <button
+        class="button button-primary"
+        type="submit"
+        [disabled]="userForm.untouched"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
